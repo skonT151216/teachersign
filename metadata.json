@@ -1,0 +1,5 @@
+{
+  "name": "교직원 연수 등록부 서명 도우미(v1.2)",
+  "description": "A digital sign-in sheet for school training sessions. Allows admins to manage sessions and staff lists, and participants to sign digitally. Generates print-ready reports.",
+  "requestFramePermissions": []
+}
