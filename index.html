@@ -1,65 +1,79 @@
-
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="color-scheme" content="light" />
-    <title>교직원 연수 등록부</title>
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="교직원 연수 등록부" />
-    <meta property="og:description" content="간편하게 서명하고 출석을 관리하세요." />
-    <meta property="og:type" content="website" />
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Add SheetJS for Excel parsing -->
-    <script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
-      
-      :root {
-        color-scheme: light;
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="color-scheme" content="light" />
+  <title>교직원 연수 등록부</title>
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="교직원 연수 등록부" />
+  <meta property="og:description" content="간편하게 서명하고 출석을 관리하세요." />
+  <meta property="og:type" content="website" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <!-- Add SheetJS for Excel parsing -->
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+    :root {
+      color-scheme: light;
+    }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #f3f4f6;
+    }
+
+    @keyframes pop-in {
+      0% {
+        transform: scale(0.95);
+        opacity: 0;
+      }
+
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .animate-pop-in {
+      animation: pop-in 0.2s ease-out forwards;
+    }
+
+    /* Print Specific Styles to hide UI and format paper */
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 10mm;
       }
 
       body {
-        font-family: 'Noto Sans KR', sans-serif;
-        background-color: #f3f4f6;
+        background-color: white;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
       }
 
-      @keyframes pop-in {
-        0% { transform: scale(0.95); opacity: 0; }
-        100% { transform: scale(1); opacity: 1; }
-      }
-      .animate-pop-in {
-        animation: pop-in 0.2s ease-out forwards;
+      .no-print {
+        display: none !important;
       }
 
-      /* Print Specific Styles to hide UI and format paper */
-      @media print {
-        @page {
-          size: A4 portrait;
-          margin: 10mm;
-        }
-        body {
-          background-color: white;
-          -webkit-print-color-adjust: exact;
-        }
-        .no-print {
-          display: none !important;
-        }
-        .print-only {
-          display: block !important;
-        }
-        .page-break {
-          page-break-after: always;
-        }
-      }
-      
       .print-only {
-        display: none;
+        display: block !important;
       }
-    </style>
+
+      .page-break {
+        page-break-after: always;
+      }
+    }
+
+    .print-only {
+      display: none;
+    }
+  </style>
   <script type="importmap">
 {
   "imports": {
@@ -70,10 +84,11 @@
   }
 }
 </script>
-<link rel="stylesheet" href="/index.css">
 </head>
-  <body>
-    <div id="root"></div>
+
+<body>
+  <div id="root"></div>
   <script type="module" src="/index.tsx"></script>
 </body>
+
 </html>

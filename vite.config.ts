@@ -9,7 +9,7 @@ export default defineConfig(({ mode }) => {
   const isCloudflare = process.env.CF_PAGES === '1';
 
   return {
-    base: isSingleFile ? './' : (isCloudflare ? '/' : '/teachersign/'),
+    base: isSingleFile ? './' : '/',
     server: {
       port: 3000,
       host: '0.0.0.0',
